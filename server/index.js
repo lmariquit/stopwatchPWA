@@ -3,13 +3,13 @@ const app = express()
 const morgan = require('morgan')
 const bodyParser = require('body-parser')
 const path = require('path')
-const sslRedirect = require('heroku-ssl-redirect')
+// const sslRedirect = require('heroku-ssl-redirect')
 
 app.use(morgan('dev'))
 app.use(express.static(path.join(__dirname, '..', 'public')))
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(sslRedirect())
+// app.use(sslRedirect())
 
 // If API route not found...
 // router.use(function(req, res, next) {
@@ -20,11 +20,12 @@ app.use(sslRedirect())
 
 // default to index.html if API route not provided
 app.get('*', function(req, res) {
+  console.log(req.secure)
+  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
   if (!req.secure) {
     res.redirect('https://' + req.headers.host + req.url)
     console.log('REDIRECTING!!', 'https://' + req.headers.host + req.url)
   }
-  res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
 })
 
 // We messed up...
