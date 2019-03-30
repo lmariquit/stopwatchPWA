@@ -21,10 +21,10 @@ app.use(sslRedirect())
 // default to index.html if API route not provided
 app.get('*', function(req, res) {
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
-  // if (!req.secure) {
-  //   res.redirect('https://' + req.headers.host + req.url)
-  //   console.log('INaaaaaaaa!!', req.headers.host)
-  // }
+  if (!req.secure) {
+    res.redirect('https://' + req.headers.host + req.url)
+    console.log('REDIRECTING!!', 'https://' + req.headers.host + req.url)
+  }
 })
 
 // We messed up...
