@@ -25,7 +25,7 @@ app.get('*', function(req, res) {
   console.log(req.secure)
   res.sendFile(path.join(__dirname, '..', 'public', 'index.html'))
   if (!req.secure) {
-    res.redirect('https://' + req.headers.host + req.url)
+    res.redirect('https://stopwatch-pwa.herokuapp.com' + req.url)
     console.log('REDIRECTING!!', 'https://' + req.headers.host + req.url)
   }
 })
