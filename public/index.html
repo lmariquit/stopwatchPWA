@@ -2,9 +2,25 @@
 <html>
   <head>
     <title>StopwatchPWA</title>
+    <link rel="manifest" href="/manifest.json" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#ffffff" />
   </head>
   <body>
     <div id="app"></div>
     <script src="./bundle.js"></script>
+    <script>
+      if (!navigator.serviceWorker.controller) {
+        navigator.serviceWorker.register('/sw.js').then(function(reg) {
+          console.log(
+            'Service worker has been registered for scope: ' + reg.scope
+          )
+        })
+      }
+    </script>
+    <noscript>NO JS</noscript>
   </body>
 </html>

@@ -1,0 +1,17 @@
+{
+  "name": "Stopwatch PWA",
+  "short_name": "StopwatchPWA",
+  "theme_color": "#ffcbe4",
+  "background_color": "#fa99ca",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "description": "Stopwatch made as a PWA",
+  "orientation": "any",
+  "icons": [
+    {
+      "src": "https://christine.website/static/img/avatar.png",
+      "sizes": "1024x1024"
+    }
+  ]
+}
