@@ -33,6 +33,7 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.4",
+    "helmet": "^3.16.0",
     "heroku-ssl-redirect": "0.0.4",
     "morgan": "^1.9.1",
     "path": "^0.12.7",
