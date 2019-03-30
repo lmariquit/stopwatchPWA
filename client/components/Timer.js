@@ -101,15 +101,22 @@ class Timer extends Component {
 
   render() {
     return (
-      <div id="timer-container">
-        <div id="hrs">{this.state.hrs}</div>
-        <div className="colons">:</div>
-        <div id="mins">{this.state.mins}</div>
-        <div className="colons">:</div>
-        <div id="secs">{this.state.secs}</div>
-        <div className="colons">:</div>
-        <div id="msecs">{this.state.msecs}</div>
-        <div onClick={() => this.toggleTimer()}>{this.state.buttonText}</div>
+      <div id="stopwatch">
+        <div id="timer-container">
+          <div id="timer">
+            <div id="hrs">{this.state.hrs}</div>
+            <div className="colons">:</div>
+            <div id="mins">{this.state.mins}</div>
+            <div className="colons">:</div>
+            <div id="secs">{this.state.secs}</div>
+            <div id="msecs">{this.state.msecs}</div>
+          </div>
+        </div>
+        <div id="button-container">
+          <div id="start-button" onClick={() => this.toggleTimer()}>
+            {this.state.buttonText}
+          </div>
+        </div>
       </div>
     )
   }
