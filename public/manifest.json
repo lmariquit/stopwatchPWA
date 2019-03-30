@@ -4,7 +4,6 @@
   "theme_color": "#ffcbe4",
   "background_color": "#fa99ca",
   "display": "standalone",
-  "scope": "/",
   "start_url": "https://stopwatch-pwa.herokuapp.com/",
   "description": "Stopwatch made as a PWA",
   "orientation": "any",
