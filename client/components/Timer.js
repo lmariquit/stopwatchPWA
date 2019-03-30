@@ -9,6 +9,7 @@ class Timer extends Component {
     this.interval
     this.state = {
       toggle: false,
+      buttonText: 'START',
       start: 0,
       pauseTime: 0,
       timeIdle: 0,
@@ -20,13 +21,7 @@ class Timer extends Component {
   }
 
   beginTimer() {
-    // this.setState({
-    //   start: Date.now()
-    // })
-    // let start = Date.now()
-    // let start = Date.now() - 7190000
     this.interval = setInterval(() => {
-      // console.log('start', this.state.start, 'idle', this.state.timeIdle)
       let delta = Date.now() - this.state.start - this.state.timeIdle
       let secsToDisplay = this.state.secs
       let msecsToDisplay = this.state.msecs
@@ -40,14 +35,13 @@ class Timer extends Component {
         secsToDisplay = secsSinceStart.toString()
       }
 
-      // let msecsSinceStart = Math.floor(delta % 100)
       let msecsSinceStart = Math.floor((delta / 10) % 100)
       if (msecsSinceStart < 10) {
         msecsToDisplay = `0${msecsSinceStart.toString()}`
       } else {
         msecsToDisplay = msecsSinceStart.toString()
       }
-      console.log(msecsToDisplay, msecsSinceStart, secsToDisplay)
+      // console.log(msecsToDisplay, msecsSinceStart, secsToDisplay)
 
       let minsSinceStart = Math.floor(delta / 1000 / 60) % 60
       if (minsSinceStart < 60) {
@@ -80,24 +74,25 @@ class Timer extends Component {
   toggleTimer() {
     if (this.state.toggle) {
       this.setState({
-        toggle: false
+        toggle: false,
+        buttonText: 'START'
       })
       this.pauseTimer()
     } else {
       if (this.state.start === 0) {
         this.setState({
           start: Date.now(),
-          toggle: true
+          toggle: true,
+          buttonText: 'PAUSE'
         })
-        console.log('HIT')
       } else {
         let timeToStart = Date.now()
         let timeIdle = timeToStart - this.state.pauseTime
-        // console.log(timeIdle)
         this.setState({
           pauseTime: 0,
           timeIdle: this.state.timeIdle + timeIdle,
-          toggle: true
+          toggle: true,
+          buttonText: 'PAUSE'
         })
       }
       this.beginTimer()
@@ -114,7 +109,7 @@ class Timer extends Component {
         <div id="secs">{this.state.secs}</div>
         <div className="colons">:</div>
         <div id="msecs">{this.state.msecs}</div>
-        <div onClick={() => this.toggleTimer()}>START</div>
+        <div onClick={() => this.toggleTimer()}>{this.state.buttonText}</div>
       </div>
     )
   }
