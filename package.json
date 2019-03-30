@@ -5,9 +5,10 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "webpack-dev-server --config ./webpack.config.js --mode development",
+    "start": "node server",
     "start-dev": "killall -9 node; NODE_ENV='development' webpack -w & npm run start-server",
-    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client"
+    "start-server": "nodemon server -e html,js,scss --ignore public --ignore client",
+    "start-webpack-dev-server": "webpack-dev-server --config ./webpack.config.js --mode development"
   },
   "keywords": [],
   "author": "",
