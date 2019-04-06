@@ -6,6 +6,7 @@ class Timer extends Component {
     this.beginTimer = this.beginTimer.bind(this)
     this.pauseTimer = this.pauseTimer.bind(this)
     this.toggleTimer = this.toggleTimer.bind(this)
+    this.resetTimer = this.resetTimer.bind(this)
     this.interval
     this.state = {
       toggle: false,
@@ -99,10 +100,25 @@ class Timer extends Component {
     }
   }
 
+  resetTimer() {
+    if (!this.state.toggle) {
+      this.setState({
+        start: 0,
+        pauseTime: 0,
+        timeIdle: 0,
+        hrs: '00',
+        mins: '00',
+        secs: '00',
+        msecs: '00'
+      })
+    }
+  }
+
   render() {
     return (
       <div id="stopwatch">
         <div id="timer-container">
+          <div id="timer-image" />
           <div id="timer">
             <div id="hrs">{this.state.hrs}</div>
             <div className="colons">:</div>
@@ -113,6 +129,9 @@ class Timer extends Component {
           </div>
         </div>
         <div id="button-container">
+          <div id="reset-button" onClick={() => this.resetTimer()}>
+            RESET
+          </div>
           <div id="start-button" onClick={() => this.toggleTimer()}>
             {this.state.buttonText}
           </div>

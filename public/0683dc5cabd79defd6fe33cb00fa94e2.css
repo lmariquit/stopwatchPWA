@@ -42,16 +42,7 @@ body {
 }
 
 #timer-image {
-  position: absolute;
-  display: flex;
-  top: -78px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 260px;
-  width: 100vw;
   background-image: url('stopwatch_img.png');
-  opacity: 0.4;
 }
 
 #timer {
@@ -62,8 +53,7 @@ body {
   padding-left: 30px;
   border-radius: 5px;
   color: rgb(255, 88, 88);
-  background-color: rgb(206, 206, 206);
-  z-index: 1;
+  background-color: rgba(175, 175, 175, 0.534);
 }
 
 .colons {
