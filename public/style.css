@@ -58,8 +58,7 @@ body {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding-top: 15px;
-  padding-bottom: 5px;
+  padding: 10px 0;
   padding-left: 30px;
   border-radius: 5px;
   color: rgb(255, 88, 88);
