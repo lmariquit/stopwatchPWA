@@ -18,7 +18,7 @@ body {
   align-items: center;
   font-size: 70px;
   padding: 35px 0;
-  padding-bottom: 50px;
+  padding-bottom: 10px;
   color: rgb(172, 172, 39);
 }
 
@@ -51,7 +51,7 @@ body {
   height: 260px;
   width: 100vw;
   background-image: url('stopwatch_img.png');
-  opacity: 0.4;
+  opacity: 0.5;
 }
 
 #timer {
@@ -91,10 +91,10 @@ body {
 #reset-button {
   width: 75%;
   text-align: center;
-  padding: 25px 0;
+  padding: 20px 0;
   border-radius: 5px;
   background-color: rgb(255, 56, 56);
-  font-size: 30px;
+  font-size: 22.5px;
   margin-bottom: 10px;
 }
 

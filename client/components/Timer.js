@@ -115,6 +115,10 @@ class Timer extends Component {
   }
 
   render() {
+    let resetOpacity
+    if (this.state.toggle || this.state.start === 0) {
+      resetOpacity = { opacity: '0.6' }
+    }
     return (
       <div id="stopwatch">
         <div id="timer-container">
@@ -129,7 +133,11 @@ class Timer extends Component {
           </div>
         </div>
         <div id="button-container">
-          <div id="reset-button" onClick={() => this.resetTimer()}>
+          <div
+            id="reset-button"
+            style={resetOpacity}
+            onClick={() => this.resetTimer()}
+          >
             RESET
           </div>
           <div id="start-button" onClick={() => this.toggleTimer()}>
