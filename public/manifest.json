@@ -1,6 +1,6 @@
 {
   "name": "Stopwatch PWA",
-  "short_name": "StopwatchPWA",
+  "short_name": "stoPWAtch",
   "theme_color": "#feffc7",
   "background_color": "#feffc7",
   "display": "standalone",
