@@ -17,8 +17,8 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 70px;
-  padding-top: 35px;
-  padding-bottom: 10px;
+  padding: 35px 0;
+  padding-bottom: 50px;
   color: rgb(172, 172, 39);
 }
 
@@ -42,16 +42,7 @@ body {
 }
 
 #timer-image {
-  position: absolute;
-  display: flex;
-  top: -78px;
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: center;
-  height: 260px;
-  width: 100vw;
   background-image: url('stopwatch_img.png');
-  opacity: 0.5;
 }
 
 #timer {
@@ -62,8 +53,7 @@ body {
   padding-left: 30px;
   border-radius: 5px;
   color: rgb(255, 88, 88);
-  background-color: rgb(206, 206, 206);
-  z-index: 1;
+  background-color: rgba(175, 175, 175, 0.534);
 }
 
 .colons {
@@ -91,10 +81,10 @@ body {
 #reset-button {
   width: 75%;
   text-align: center;
-  padding: 20px 0;
+  padding: 25px 0;
   border-radius: 5px;
   background-color: rgb(255, 56, 56);
-  font-size: 22.5px;
+  font-size: 30px;
   margin-bottom: 10px;
 }
 
@@ -108,18 +98,45 @@ body {
 }
 
 @media screen and (min-width: 770px) {
+  html,
+  body {
+    margin: 0;
+    height: 100%;
+    overflow: hidden;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+  }
+
+  #main {
+    background-color: rgb(254, 255, 199);
+  }
+
   #title-container {
-    padding-top: 25px;
-    padding-bottom: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    font-size: 70px;
+    padding: 75px 0;
+    color: rgb(172, 172, 39);
+  }
+
+  .title-small {
+    font-size: 50px;
+  }
+
+  #stopwatch {
+    height: 100vh;
+    background-color: rgb(254, 255, 199);
   }
 
   #timer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    margin: 50px 0;
     font-size: 100px;
-  }
-
-  #timer-image {
-    top: -82px;
-    height: 360px;
   }
 
   #timer {
@@ -130,29 +147,39 @@ body {
     padding-left: 30px;
     border-radius: 5px;
     color: rgb(255, 88, 88);
-    background-color: rgb(206, 206, 206);
+    background-color: rgba(175, 175, 175, 0.534);
   }
 
   .colons {
     font-size: 70px;
   }
 
+  #msecs {
+    font-size: 30px;
+    text-align: center;
+    width: 35px;
+    margin-left: 5px;
+    margin-right: 15px;
+  }
+
   #button-container {
-    position: fixed;
-    bottom: 5vh;
-    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-  }
-
-  #reset-button {
-    width: 70%;
+    height: 100px;
+    /* font-weight: bold;
+    font-family: 'Courier New', Courier, monospace; */
+    /* background-color: red; */
   }
 
   #start-button {
     width: 70%;
+    /* height: 100px; */
+    text-align: center;
+    padding: 25px 0;
+    border-radius: 5px;
+    background-color: rgb(255, 56, 56);
     font-size: 50px;
   }
 }
