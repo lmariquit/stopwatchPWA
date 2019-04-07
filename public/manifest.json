@@ -6,7 +6,7 @@
   "display": "standalone",
   "start_url": "https://stopwatch-pwa.herokuapp.com/",
   "description": "Stopwatch made as a PWA",
-  "orientation": "any",
+  "orientation": "portrait",
   "icons": [
     {
       "src": "stopwatch_img.png",
