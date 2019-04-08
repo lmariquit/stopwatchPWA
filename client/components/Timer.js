@@ -20,10 +20,8 @@ const Timer = () => {
   useEffect(
     function beginOrPauseTimer() {
       if (toggle) {
-        console.log('starting....')
         beginTimer()
       } else {
-        console.log('pausing...')
         pauseTimer()
       }
       return () => clearInterval(timeInterval)
@@ -52,7 +50,6 @@ const Timer = () => {
       } else {
         msecsToDisplay = msecsSinceStart.toString()
       }
-      // console.log(msecsToDisplay, msecsSinceStart, secsToDisplay)
 
       let minsSinceStart = Math.floor(delta / 1000 / 60) % 60
       if (minsSinceStart < 60) {
