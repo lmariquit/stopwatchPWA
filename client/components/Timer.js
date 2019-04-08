@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
+import NoSleep from 'nosleep.js'
 
 const Timer = () => {
+  const noSleep = new NoSleep()
   let timeInterval
   let resetOpacity
   const [toggle, setToggle] = useState(false)
@@ -21,13 +23,22 @@ const Timer = () => {
     function beginOrPauseTimer() {
       if (toggle) {
         beginTimer()
+        document.addEventListener('touchstart', enableNoSleep, false)
       } else {
         pauseTimer()
       }
-      return () => clearInterval(timeInterval)
+      return () => {
+        clearInterval(timeInterval)
+        noSleep.disable()
+      }
     },
     [toggle]
   )
+
+  function enableNoSleep() {
+    noSleep.enable()
+    document.removeEventListener('touchstart', enableNoSleep, false)
+  }
 
   function beginTimer() {
     timeInterval = setInterval(() => {
