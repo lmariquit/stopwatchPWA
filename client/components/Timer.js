@@ -24,15 +24,56 @@ const Timer = () => {
         beginTimer()
       } else {
         console.log('pausing...')
-        clearInterval(timeInterval)
+        // clearInterval(timeInterval)
         pauseTimer()
       }
+      return () => clearInterval(timeInterval)
     },
     [toggle]
   )
 
   function beginTimer() {
-    timeInterval = setInterval(runTimer(), 1000)
+    timeInterval = setInterval(() => {
+      let delta = Date.now() - startTime - timeIdle
+      let secsToDisplay = secs
+      let msecsToDisplay = msecs
+      let minsToDisplay = mins
+      let hrsToDisplay = hrs
+
+      let secsSinceStart = Math.floor((delta / 1000) % 60)
+      if (secsSinceStart < 10) {
+        secsToDisplay = `0${secsSinceStart.toString()}`
+      } else {
+        secsToDisplay = secsSinceStart.toString()
+      }
+
+      let msecsSinceStart = Math.floor((delta / 10) % 100)
+      if (msecsSinceStart < 10) {
+        msecsToDisplay = `0${msecsSinceStart.toString()}`
+      } else {
+        msecsToDisplay = msecsSinceStart.toString()
+      }
+      // console.log(msecsToDisplay, msecsSinceStart, secsToDisplay)
+
+      let minsSinceStart = Math.floor(delta / 1000 / 60) % 60
+      if (minsSinceStart < 60) {
+        minsToDisplay = `0${minsSinceStart.toString()}`
+      } else {
+        minsToDisplay = minsSinceStart.toString()
+      }
+
+      let hrsSinceStart = Math.floor(delta / 1000 / 60 / 60)
+      if (hrsSinceStart < 60) {
+        hrsToDisplay = `0${hrsSinceStart.toString()}`
+      } else {
+        hrsToDisplay = hrsSinceStart.toString()
+      }
+
+      setSecs(secsToDisplay)
+      setMsecs(msecsToDisplay)
+      setMins(minsToDisplay)
+      setHrs(hrsToDisplay)
+    }, 25)
   }
 
   function runTimer() {
