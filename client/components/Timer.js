@@ -54,14 +54,14 @@ const Timer = () => {
       }
 
       let minsSinceStart = Math.floor(delta / 1000 / 60) % 60
-      if (minsSinceStart < 60) {
+      if (minsSinceStart < 10) {
         minsToDisplay = `0${minsSinceStart.toString()}`
       } else {
         minsToDisplay = minsSinceStart.toString()
       }
 
       let hrsSinceStart = Math.floor(delta / 1000 / 60 / 60)
-      if (hrsSinceStart < 60) {
+      if (hrsSinceStart < 10) {
         hrsToDisplay = `0${hrsSinceStart.toString()}`
       } else {
         hrsToDisplay = hrsSinceStart.toString()
